@@ -1,8 +1,8 @@
 {
-  "label": "Products",
+  "label": "Продукты",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Taiga IoT device catalog (test pages)."
+    "description": "Каталог устройств Taiga IoT (тестовые страницы)."
   }
 }

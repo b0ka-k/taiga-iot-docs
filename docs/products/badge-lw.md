@@ -1,19 +1,19 @@
 # Taiga Badge-LW
 
-Test page for **Taiga Badge-LW** (LoRaWAN personnel badge).
+Тестовая страница для **Taiga Badge-LW** (персональный бейдж LoRaWAN).
 
-## Summary
+## Кратко
 
-| Field | Value |
-|-------|-------|
-| Radio | LoRaWAN |
-| Role | Badge / personnel |
-| Docs status | Test stub |
+| Поле | Значение |
+|------|----------|
+| Радио | LoRaWAN |
+| Назначение | Бейдж / персонал |
+| Статус docs | Тестовая заглушка |
 
-## Sections (placeholders)
+## Разделы (заглушки)
 
-- Hardware
-- Firmware
-- Communication (LoRaWAN, BLE, GNSS, Wi-Fi, UWB)
+- Аппаратная часть
+- Прошивка
+- Связь (LoRaWAN, BLE, GNSS, Wi-Fi, UWB)
 
-Replace this stub with full product documentation later.
+Позже замените эту заглушку полной документацией по продукту.

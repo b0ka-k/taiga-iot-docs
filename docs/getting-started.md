@@ -1,20 +1,20 @@
-# Getting started
+# Начало работы
 
-Welcome to the **Taiga IoT** documentation site.
+Добро пожаловать в документацию **Taiga IoT**.
 
-## What you will find here
+## Что здесь есть
 
-| Section | Content |
-|---------|---------|
-| Products | Device families and product pages |
-| Shared technologies | Protocols and platforms |
-| Software | Apps and firmware notes |
+| Раздел | Содержание |
+|--------|------------|
+| Продукты | Линейки устройств и страницы продуктов |
+| Общие технологии | Протоколы и платформы |
+| ПО | Приложения и заметки по прошивкам |
 
-## Quick links
+## Быстрые ссылки
 
-- Product overview: [Products](./products/overview)
-- Example product: [Badge-LW](./products/badge-lw)
+- Обзор продуктов: [Продукты](./products/overview)
+- Пример продукта: [Badge-LW](./products/badge-lw)
 
 :::tip
-This is test content to verify Git → Docusaurus deployment.
+Это тестовый контент для проверки цепочки Git → Docusaurus.
 :::

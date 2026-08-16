@@ -1,15 +1,15 @@
-# Products overview
+# Обзор продуктов
 
-Short index of Taiga IoT product families (test documentation).
+Краткий указатель линеек продуктов Taiga IoT (тестовая документация).
 
-## Available pages
+## Доступные страницы
 
-- [Badge-LW](./badge-lw) — LoRaWAN badge (pilot page)
+- [Badge-LW](./badge-lw) — бейдж LoRaWAN (пилотная страница)
 
-## Status legend
+## Статусы
 
-| Status | Meaning |
-|--------|---------|
-| Ready | Docs tree is available |
-| Draft | Placeholder / stub |
-| Planned | Not written yet |
+| Статус | Значение |
+|--------|----------|
+| Ready | Дерево документации готово |
+| Draft | Заглушка / черновик |
+| Planned | Ещё не написано |

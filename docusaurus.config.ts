@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Taiga IoT Docs',
-  tagline: 'Product and software documentation',
+  tagline: 'Документация по продуктам и ПО',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -20,8 +20,8 @@ const config: Config = {
   onBrokenLinks: 'throw',
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ru',
+    locales: ['ru'],
   },
 
   presets: [
@@ -57,7 +57,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Документация',
         },
         {
           href: 'https://github.com/b0ka-k/taiga-iot-docs',
@@ -75,37 +75,37 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Документация',
           items: [
             {
-              label: 'Introduction',
+              label: 'Введение',
               to: '/docs/intro',
             },
             {
-              label: 'Getting started',
+              label: 'Начало работы',
               to: '/docs/getting-started',
             },
             {
-              label: 'Products',
+              label: 'Продукты',
               to: '/docs/products/overview',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Ещё',
           items: [
             {
               label: 'GitHub',
               href: 'https://github.com/b0ka-k/taiga-iot-docs',
             },
             {
-              label: 'Website',
+              label: 'Сайт',
               href: 'https://taigaiot.com',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Taiga IoT. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Taiga IoT. Собрано на Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

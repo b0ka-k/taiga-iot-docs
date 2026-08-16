@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Open documentation
+            Открыть документацию
           </Link>
         </div>
       </div>
@@ -31,8 +31,8 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   return (
     <Layout
-      title="Home"
-      description="Taiga IoT product and software documentation">
+      title="Главная"
+      description="Документация по продуктам и ПО Taiga IoT">
       <HomepageHeader />
     </Layout>
   );

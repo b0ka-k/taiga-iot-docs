@@ -1,17 +1,17 @@
-# Taiga IoT Knowledge Base
+# База знаний Taiga IoT
 
-Corporate documentation for Taiga IoT devices and software.
+Корпоративная документация по устройствам и ПО Taiga IoT.
 
-This site is built with [Docusaurus](https://docusaurus.io/) and published from GitHub.
+Сайт собран на [Docusaurus](https://docusaurus.io/) и публикуется из GitHub.
 
-## Start here
+## С чего начать
 
-- [Getting started](./getting-started)
-- [Products overview](./products/overview)
+- [Начало работы](./getting-started)
+- [Обзор продуктов](./products/overview)
 - [Badge-LW](./products/badge-lw)
 
-## How updates work
+## Как обновляется сайт
 
-1. Edit Markdown files in `docs/`
-2. `git push` to GitHub
-3. On the server: `git pull && docker compose up -d --build`
+1. Правите Markdown-файлы в `docs/`
+2. Делаете `git push` в GitHub
+3. На сервере: `git pull && docker compose up -d --build`
