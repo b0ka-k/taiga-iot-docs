@@ -1,0 +1,25 @@
+/**
+ * Taiga IoT brand colors (#538134)
+ */
+:root {
+  --ifm-color-primary: #538134;
+  --ifm-color-primary-dark: #4a7430;
+  --ifm-color-primary-darker: #466e2d;
+  --ifm-color-primary-darkest: #3a5a25;
+  --ifm-color-primary-light: #5c8e38;
+  --ifm-color-primary-lighter: #60943b;
+  --ifm-color-primary-lightest: #6fa447;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #7cb85c;
+  --ifm-color-primary-dark: #6eab4f;
+  --ifm-color-primary-darker: #67a24a;
+  --ifm-color-primary-darkest: #55853d;
+  --ifm-color-primary-light: #8ac16c;
+  --ifm-color-primary-lighter: #91c573;
+  --ifm-color-primary-lightest: #a5d18c;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
