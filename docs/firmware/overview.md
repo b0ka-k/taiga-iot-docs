@@ -28,4 +28,4 @@ sidebar_position: 1
 
 ## Ссылка на другую страницу
 
-См. также [Badge-LW](../products/Badge-LW/overview).
+См. также [Badge-LW](../products/badge-lw/overview).

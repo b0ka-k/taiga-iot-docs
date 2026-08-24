@@ -13,7 +13,7 @@
 ## Быстрые ссылки
 
 - Обзор продуктов: [Продукты](./products/overview)
-- Пример продукта: [Badge-LW](./products/Badge-LW/overview)
+- Пример продукта: [Badge-LW](./products/badge-lw/overview)
 
 :::tip
 Это тестовый контент для проверки цепочки Git → Docusaurus.
