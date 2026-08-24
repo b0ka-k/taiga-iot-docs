@@ -1,9 +1,9 @@
 {
   "label": "Taiga Badge-LW",
-  "position": 2,
+  "position": 1,
   "collapsed": false,
   "link": {
-    "type": "doc",
-    "id": "products/badge-lw/overview"
+    "type": "generated-index",
+    "description": "Документация по персональному бейджу Taiga Badge-LW (LoRaWAN)."
   }
 }
