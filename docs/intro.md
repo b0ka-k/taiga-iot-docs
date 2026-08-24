@@ -8,7 +8,7 @@
 
 - [Начало работы](./getting-started)
 - [Обзор продуктов](./products/overview)
-- [Badge-LW](./products/badge-lw)
+- [Badge-LW](./products/Badge-LW/overview)
 
 ## Как обновляется сайт
 

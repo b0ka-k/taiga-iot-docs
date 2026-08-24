@@ -4,7 +4,7 @@
 
 ## Доступные страницы
 
-- [Badge-LW](./badge-lw) — бейдж LoRaWAN (пилотная страница)
+- [Badge-LW](./Badge-LW/overview) — бейдж LoRaWAN (пилотная страница)
 
 ## Статусы
 
