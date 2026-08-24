@@ -1,0 +1,8 @@
+{
+  "label": "Прошивки",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Документация по прошивкам устройств Taiga IoT."
+  }
+}
