@@ -92,11 +92,6 @@ collections:
         widget: string
         required: true
         hint: "Так будет в сайдбаре и в заголовке сайта. Пишите по-русски: Возможности"
-      - label: "Подпись в меню"
-        name: sidebar_label
-        widget: string
-        required: false
-        hint: "Необязательно. Если пусто — используется «Название страницы»."
       - label: "Позиция в меню"
         name: sidebar_position
         widget: number
@@ -183,10 +178,6 @@ collections:
         widget: string
         required: true
         hint: "Так будет в сайдбаре (можно по-русски)"
-      - label: "Подпись в меню"
-        name: sidebar_label
-        widget: string
-        required: false
       - label: "Позиция в меню"
         name: sidebar_position
         widget: number
