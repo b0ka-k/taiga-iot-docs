@@ -1,6 +1,6 @@
 ---
 title: Возможности
-sidebar_label: тест
+sidebar_label: ''
 sidebar_position: 10
 ---
 
