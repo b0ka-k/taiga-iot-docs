@@ -60,6 +60,11 @@ const config: Config = {
           label: 'Документация',
         },
         {
+          href: 'http://95.183.13.164:3002/admin/',
+          label: 'Редактор',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/b0ka-k/taiga-iot-docs',
           label: 'GitHub',
           position: 'right',

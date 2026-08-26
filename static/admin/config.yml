@@ -1,0 +1,182 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+# Sveltia CMS — редактор базы знаний Taiga IoT
+# Вход: Sign In with Token → GitHub PAT (classic) со scope repo
+
+backend:
+  name: github
+  repo: b0ka-k/taiga-iot-docs
+  branch: main
+
+local_backend: false
+
+publish_mode: simple
+
+media_folder: static/img
+public_folder: /img
+
+site_url: http://95.183.13.164:3002
+display_url: http://95.183.13.164:3002
+logo_url: /img/logo.svg
+
+locale: ru
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # --- Корневые страницы docs/ ---
+  - name: docs_root
+    label: "Документация (корень)"
+    description: "Страницы верхнего уровня"
+    files:
+      - label: "База знаний (intro)"
+        name: intro
+        file: docs/intro.md
+        fields:
+          - label: "Содержимое"
+            name: body
+            widget: markdown
+      - label: "Начало работы"
+        name: getting_started
+        file: docs/getting-started.md
+        fields:
+          - label: "Содержимое"
+            name: body
+            widget: markdown
+
+  # --- Каталог продуктов ---
+  - name: products_index
+    label: "Продукты — обзор каталога"
+    description: "Файл docs/products/overview.md"
+    files:
+      - label: "Обзор продуктов"
+        name: products_overview
+        file: docs/products/overview.md
+        fields:
+          - label: "Содержимое"
+            name: body
+            widget: markdown
+
+  - name: products_badge_lw
+    label: "Продукты / Badge-LW"
+    label_singular: "Страница Badge-LW"
+    description: "Статьи внутри раздела Taiga Badge-LW. Имя файла — латиницей (overview, hardware)."
+    folder: docs/products/badge-lw
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - label: "Позиция в меню"
+        name: sidebar_position
+        widget: number
+        required: false
+        value_type: int
+        default: 10
+      - label: "Содержимое"
+        name: body
+        widget: markdown
+        hint: "Начинайте с # Заголовок. Ссылки на соседние страницы: ./hardware"
+
+  - name: products_badge_lw_category
+    label: "Продукты / Badge-LW — настройки раздела"
+    description: "Название и описание раздела в сайдбаре (_category_.json)"
+    files:
+      - label: "Настройки раздела Badge-LW"
+        name: badge_lw_category
+        file: docs/products/badge-lw/_category_.json
+        fields:
+          - label: "Название в меню"
+            name: label
+            widget: string
+          - label: "Позиция"
+            name: position
+            widget: number
+            value_type: int
+          - label: "Развёрнут по умолчанию"
+            name: collapsed
+            widget: boolean
+            default: false
+          - label: "Тип ссылки раздела"
+            name: link
+            widget: object
+            fields:
+              - label: "type"
+                name: type
+                widget: select
+                options: ["generated-index", "doc"]
+                default: "generated-index"
+              - label: "Описание оглавления"
+                name: description
+                widget: text
+                required: false
+              - label: "id документа (если type=doc)"
+                name: id
+                widget: string
+                required: false
+
+  - name: products_category
+    label: "Продукты — настройки раздела"
+    files:
+      - label: "Настройки раздела Продукты"
+        name: products_category
+        file: docs/products/_category_.json
+        fields:
+          - label: "Название в меню"
+            name: label
+            widget: string
+          - label: "Позиция"
+            name: position
+            widget: number
+            value_type: int
+          - label: "Ссылка раздела"
+            name: link
+            widget: object
+            fields:
+              - { label: "type", name: type, widget: string, default: "generated-index" }
+              - { label: "Описание", name: description, widget: text }
+
+  # --- Прошивки ---
+  - name: firmware
+    label: "Прошивки"
+    label_singular: "Страница прошивок"
+    folder: docs/firmware
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - label: "Позиция в меню"
+        name: sidebar_position
+        widget: number
+        required: false
+        value_type: int
+      - label: "Содержимое"
+        name: body
+        widget: markdown
+
+  - name: firmware_category
+    label: "Прошивки — настройки раздела"
+    files:
+      - label: "Настройки раздела Прошивки"
+        name: firmware_category
+        file: docs/firmware/_category_.json
+        fields:
+          - label: "Название в меню"
+            name: label
+            widget: string
+          - label: "Позиция"
+            name: position
+            widget: number
+            value_type: int
+          - label: "Ссылка раздела"
+            name: link
+            widget: object
+            fields:
+              - { label: "type", name: type, widget: string, default: "generated-index" }
+              - { label: "Описание", name: description, widget: text }
