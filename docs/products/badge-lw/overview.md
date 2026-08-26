@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Обзор продукта — Taiga Badge-LW
-sidebar_label: Обзор
+sidebar_position: 1
 ---
 
 Персональный трекер в форм-факторе бэйджа. Отслеживание персонала на открытой местности (GNSS) и indoors (iBeacon, Wi-Fi, **UWB**), активность, удары/падения, SOS, метка Mifare для СКУД.
