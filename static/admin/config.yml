@@ -2,6 +2,9 @@
 
 # Sveltia CMS — редактор базы знаний Taiga IoT
 # Вход: Sign In with Token → GitHub PAT (classic) со scope repo
+#
+# Важно: поле «Название» (title) пишется в frontmatter и попадает в сайдбар Docusaurus.
+# Имя файла (slug) остаётся латиницей только для URL.
 
 backend:
   name: github
@@ -27,7 +30,6 @@ slug:
   sanitize_replacement: "-"
 
 collections:
-  # --- Корневые страницы docs/ ---
   - name: docs_root
     label: "Документация (корень)"
     description: "Страницы верхнего уровня"
@@ -36,6 +38,11 @@ collections:
         name: intro
         file: docs/intro.md
         fields:
+          - label: "Название страницы"
+            name: title
+            widget: string
+            required: false
+            hint: "Если задано — так будет в меню. Иначе берётся первый # заголовок."
           - label: "Содержимое"
             name: body
             widget: markdown
@@ -43,11 +50,14 @@ collections:
         name: getting_started
         file: docs/getting-started.md
         fields:
+          - label: "Название страницы"
+            name: title
+            widget: string
+            required: false
           - label: "Содержимое"
             name: body
             widget: markdown
 
-  # --- Каталог продуктов ---
   - name: products_index
     label: "Продукты — обзор каталога"
     description: "Файл docs/products/overview.md"
@@ -56,6 +66,10 @@ collections:
         name: products_overview
         file: docs/products/overview.md
         fields:
+          - label: "Название страницы"
+            name: title
+            widget: string
+            required: false
           - label: "Содержимое"
             name: body
             widget: markdown
@@ -63,14 +77,26 @@ collections:
   - name: products_badge_lw
     label: "Продукты / Badge-LW"
     label_singular: "Страница Badge-LW"
-    description: "Статьи внутри раздела Taiga Badge-LW. Имя файла — латиницей (overview, hardware)."
+    description: "Название (по-русски) → сайдбар. Имя файла латиницей → только URL."
     folder: docs/products/badge-lw
     create: true
     delete: true
     extension: md
     format: yaml-frontmatter
+    identifier_field: title
+    summary: "{{title}}"
     slug: "{{slug}}"
     fields:
+      - label: "Название страницы"
+        name: title
+        widget: string
+        required: true
+        hint: "Так будет в сайдбаре и в заголовке сайта. Пишите по-русски: Возможности"
+      - label: "Подпись в меню"
+        name: sidebar_label
+        widget: string
+        required: false
+        hint: "Необязательно. Если пусто — используется «Название страницы»."
       - label: "Позиция в меню"
         name: sidebar_position
         widget: number
@@ -80,7 +106,7 @@ collections:
       - label: "Содержимое"
         name: body
         widget: markdown
-        hint: "Начинайте с # Заголовок. Ссылки на соседние страницы: ./hardware"
+        hint: "Не дублируйте заголовок как # в тексте — название уже задано полем выше. Ссылки: ./hardware"
 
   - name: products_badge_lw_category
     label: "Продукты / Badge-LW — настройки раздела"
@@ -140,7 +166,6 @@ collections:
               - { label: "type", name: type, widget: string, default: "generated-index" }
               - { label: "Описание", name: description, widget: text }
 
-  # --- Прошивки ---
   - name: firmware
     label: "Прошивки"
     label_singular: "Страница прошивок"
@@ -149,8 +174,19 @@ collections:
     delete: true
     extension: md
     format: yaml-frontmatter
+    identifier_field: title
+    summary: "{{title}}"
     slug: "{{slug}}"
     fields:
+      - label: "Название страницы"
+        name: title
+        widget: string
+        required: true
+        hint: "Так будет в сайдбаре (можно по-русски)"
+      - label: "Подпись в меню"
+        name: sidebar_label
+        widget: string
+        required: false
       - label: "Позиция в меню"
         name: sidebar_position
         widget: number
