@@ -60,7 +60,7 @@ const config: Config = {
           label: 'Документация',
         },
         {
-          href: 'http://95.183.13.164:3002/admin/',
+          href: 'https://95.183.13.164:3443/admin/',
           label: 'Редактор',
           position: 'right',
         },

@@ -15,8 +15,8 @@ publish_mode: simple
 media_folder: static/img
 public_folder: /img
 
-site_url: http://95.183.13.164:3002
-display_url: http://95.183.13.164:3002
+site_url: https://95.183.13.164:3443
+display_url: https://95.183.13.164:3443
 logo_url: /img/logo.svg
 
 locale: ru
