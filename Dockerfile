@@ -1,4 +1,5 @@
-FROM node:20-alpine AS build
+# bookworm (glibc): Tina's better-sqlite3 has no Alpine/musl prebuilds
+FROM node:20-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
