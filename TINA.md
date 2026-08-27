@@ -1,9 +1,62 @@
-# TinaCMS (POC)
+# TinaCMS + TinaCloud
 
-Редактор Tina для Docusaurus. Пока **локальный режим** (без TinaCloud).  
-Sveltia остаётся на `/admin/`; Tina — на **`/tina-admin/`**.
+Редактор Tina для Docusaurus.  
+Sveltia: `/admin/` · Tina: **`/tina-admin/`**
 
-## Быстрый старт (на ПК)
+| Режим | URL |
+|-------|-----|
+| **Сервер (TinaCloud)** | **https://95.183.13.164:3443/tina-admin/** |
+| Локально без облака | http://localhost:3000/tina-admin/index.html |
+
+---
+
+## 1. Создать проект TinaCloud (один раз)
+
+1. Зайти на https://app.tina.io и войти через GitHub.
+2. **New Project** → выбрать репозиторий `b0ka-k/taiga-iot-docs`, ветка `main`.
+3. Дождаться индексации контента.
+4. Скопировать:
+   - **Client ID** — вкладка Overview  
+   - **Read-only Token** — вкладка Tokens  
+
+## 2. Секреты на ПК и на сервере
+
+Создайте файл `.env` (рядом с `docker-compose.yml`):
+
+```env
+NEXT_PUBLIC_TINA_CLIENT_ID=ваш_client_id
+TINA_CLIENT_ID=ваш_client_id
+TINA_TOKEN=ваш_read_only_token
+TINA_BRANCH=main
+```
+
+- Локально: `C:\Users\user\Projects\taiga-iot-docs\.env`
+- На сервере: `/opt/docusaurus-docs/.env`  
+  (docker compose подхватит переменные при `up --build`)
+
+Файл `.env` в git **не** коммитится. Шаблон: `.env.example`.
+
+## 3. Деплой на сервер
+
+```bash
+cd /opt/docusaurus-docs
+git pull
+# убедитесь что .env с TINA_* уже лежит здесь
+docker compose up -d --build
+```
+
+Если `TINA_CLIENT_ID` и `TINA_TOKEN` заданы — в образ попадёт админка Tina.  
+Если нет — сайт соберётся как раньше, без `/tina-admin/`.
+
+Открыть: **https://95.183.13.164:3443/tina-admin/**  
+(предупреждение браузера про самоподписанный сертификат — как у Sveltia)
+
+Вход: аккаунт TinaCloud / GitHub (как в проекте на app.tina.io).  
+Save → коммит в GitHub. Чтобы увидеть на сайте — снова `git pull && docker compose up -d --build` на сервере.
+
+## 4. Локальная работа
+
+Без облака (правки только на диск):
 
 ```powershell
 cd C:\Users\user\Projects\taiga-iot-docs
@@ -11,64 +64,16 @@ $env:Path = "D:\node js;" + $env:Path
 npm run start:tina
 ```
 
-Откройте:
-
-**http://localhost:3000/tina-admin/index.html**
-
-В локальном режиме Save пишет файлы прямо на диск (`docs/...`).  
-Потом как обычно:
+С облаком (нужен `.env`):
 
 ```powershell
-git add docs
-git commit -m "docs: update via Tina"
-git push origin main
+npm run build:tina
+npm run serve
+# или start:tina — tinacms подхватит .env
 ```
-
-На сервере:
-
-```bash
-cd /opt/docusaurus-docs
-git pull
-docker compose up -d --build
-```
-
-> Docker-сборка сайта **не** запускает Tina — только Docusaurus. Tina нужна для редактирования.
-
-## Что настроено
-
-| Файл | Назначение |
-|------|------------|
-| `tina/config.ts` | Схема коллекций (Badge-LW, прошивки, intro…) |
-| `static/tina-admin/` | UI админки (генерируется `tinacms build` / `dev`) |
-| `npm run start:tina` | Docusaurus + Tina GraphQL API вместе |
-
-Поля статьи: `title`, `sidebar_position`, rich-text `body` → frontmatter + markdown.
-
-## TinaCloud (позже, для правок с сервера)
-
-Сейчас Tina **не** открывается на `https://IP:3443` как полноценный cloud-редактор без аккаунта TinaCloud.
-
-Чтобы редактировать удалённо (как Sveltia):
-
-1. Зарегистрироваться на https://app.tina.io  
-2. Привязать GitHub-репо `b0ka-k/taiga-iot-docs`  
-3. Скопировать **Client ID** и **Read-only token**  
-4. Создать `.env` (не коммитить секреты):
-
-```env
-TINA_CLIENT_ID=...
-TINA_TOKEN=...
-TINA_BRANCH=main
-```
-
-5. В CI/локально: `npm run build:tina` — обновит `static/tina-admin/`  
-6. Задеплоить сайт; админка: `https://.../tina-admin/index.html`
-
-Без TinaCloud удобнее править **локально** через `npm run start:tina`.
 
 ## Важно
 
-- Не путайте с Sveltia: `/admin/` = Sveltia, `/tina-admin/` = Tina.
-- Имя файла (slug) лучше латиницей (`overview`, `hardware`).
-- `title` — русское название для сайдбара.
-- Не ставьте пустой `sidebar_label`.
+- Не путать: `/admin/` = Sveltia, `/tina-admin/` = Tina.
+- `title` — русское имя для сайдбара; не оставляйте пустой `sidebar_label`.
+- Имена файлов лучше латиницей (`overview`, `hardware`).

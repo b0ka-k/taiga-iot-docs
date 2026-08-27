@@ -65,6 +65,11 @@ const config: Config = {
           position: 'right',
         },
         {
+          href: 'https://95.183.13.164:3443/tina-admin/',
+          label: 'Tina',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/b0ka-k/taiga-iot-docs',
           label: 'GitHub',
           position: 'right',

@@ -3,7 +3,21 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-RUN npm run build
+
+# TinaCloud credentials (optional). When set, builds /tina-admin into the site.
+ARG TINA_CLIENT_ID=
+ARG TINA_TOKEN=
+ARG TINA_BRANCH=main
+ENV TINA_CLIENT_ID=$TINA_CLIENT_ID \
+    NEXT_PUBLIC_TINA_CLIENT_ID=$TINA_CLIENT_ID \
+    TINA_TOKEN=$TINA_TOKEN \
+    TINA_BRANCH=$TINA_BRANCH
+
+RUN if [ -n "$TINA_CLIENT_ID" ] && [ -n "$TINA_TOKEN" ]; then \
+      npx tinacms build && npm run build; \
+    else \
+      npm run build; \
+    fi
 
 FROM nginx:alpine
 RUN apk add --no-cache openssl \

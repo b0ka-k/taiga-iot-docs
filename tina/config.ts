@@ -1,23 +1,30 @@
 import { defineConfig } from "tinacms";
 
 /**
- * TinaCMS POC for Taiga IoT Docs (Docusaurus).
+ * TinaCMS for Taiga IoT Docs (Docusaurus).
  *
- * Local editing (no TinaCloud):
- *   npm run start:tina
- *   open http://localhost:3000/tina-admin/index.html
+ * Local (без TinaCloud): npm run start:tina → http://localhost:3000/tina-admin/index.html
+ * Production (TinaCloud): https://95.183.13.164:3443/tina-admin/
  *
- * Sveltia stays at /admin/ — Tina uses /tina-admin/ to avoid conflict.
+ * Sveltia: /admin/ — Tina: /tina-admin/
  */
-export default defineConfig({
-  branch:
-    process.env.TINA_BRANCH ||
-    process.env.GITHUB_BRANCH ||
-    process.env.VERCEL_GIT_COMMIT_REF ||
-    process.env.HEAD ||
-    "main",
+const branch =
+  process.env.TINA_BRANCH ||
+  process.env.NEXT_PUBLIC_TINA_BRANCH ||
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  "main";
 
-  clientId: process.env.TINA_CLIENT_ID || null,
+export default defineConfig({
+  branch,
+
+  // TinaCloud: Client ID + Read-only Token from https://app.tina.io
+  clientId:
+    process.env.NEXT_PUBLIC_TINA_CLIENT_ID ||
+    process.env.TINA_PUBLIC_CLIENT_ID ||
+    process.env.TINA_CLIENT_ID ||
+    null,
   token: process.env.TINA_TOKEN || null,
 
   build: {

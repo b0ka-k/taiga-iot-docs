@@ -1,8 +1,10 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
+var branch = process.env.TINA_BRANCH || process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
-  branch: process.env.TINA_BRANCH || process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main",
-  clientId: process.env.TINA_CLIENT_ID || null,
+  branch,
+  // TinaCloud: Client ID + Read-only Token from https://app.tina.io
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || process.env.TINA_PUBLIC_CLIENT_ID || process.env.TINA_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || null,
   build: {
     outputFolder: "tina-admin",

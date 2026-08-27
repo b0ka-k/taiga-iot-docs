@@ -1,7 +1,14 @@
 services:
   docs:
-    build: .
+    build:
+      context: .
+      args:
+        TINA_CLIENT_ID: ${TINA_CLIENT_ID:-}
+        TINA_TOKEN: ${TINA_TOKEN:-}
+        TINA_BRANCH: ${TINA_BRANCH:-main}
     ports:
+      # HTTP — чтение сайта
       - "3002:80"
+      # HTTPS — CMS (Sveltia / Tina). Если 3443 closed у хостера — открой в панели firewall.
       - "3443:443"
     restart: unless-stopped
