@@ -1,0 +1,13 @@
+fragment Badge_lwParts on Badge_lw {
+  __typename
+  title
+  sidebar_position
+  body
+}
+
+fragment FirmwareParts on Firmware {
+  __typename
+  title
+  sidebar_position
+  body
+}

@@ -22,3 +22,6 @@ yarn-error.log*
 # Obsidian
 .obsidian/
 Pasted image *.png
+
+# TinaCMS generated admin (built by `npm run build:tina` / `start:tina`)
+static/tina-admin/

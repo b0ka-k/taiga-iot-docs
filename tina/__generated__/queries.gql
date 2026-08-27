@@ -1,0 +1,109 @@
+query badge_lw($relativePath: String!) {
+  badge_lw(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Badge_lwParts
+  }
+}
+
+query badge_lwConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Badge_lwFilter) {
+  badge_lwConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Badge_lwParts
+      }
+    }
+  }
+}
+
+query firmware($relativePath: String!) {
+  firmware(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FirmwareParts
+  }
+}
+
+query firmwareConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FirmwareFilter) {
+  firmwareConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FirmwareParts
+      }
+    }
+  }
+}

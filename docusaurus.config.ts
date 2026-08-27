@@ -61,7 +61,7 @@ const config: Config = {
         },
         {
           href: 'https://95.183.13.164:3443/admin/',
-          label: 'Редактор',
+          label: 'Sveltia',
           position: 'right',
         },
         {
