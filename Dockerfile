@@ -18,8 +18,10 @@ ENV TINA_CLIENT_ID=$TINA_CLIENT_ID \
     TINA_BRANCH=$TINA_BRANCH
 
 RUN if [ -n "$TINA_CLIENT_ID" ] && [ -n "$TINA_TOKEN" ]; then \
+      echo "Building with TinaCloud admin (/tina-admin)..."; \
       npx tinacms build && npm run build; \
     else \
+      echo "WARN: TINA_CLIENT_ID/TINA_TOKEN empty — skipping tinacms build (no /tina-admin)"; \
       npm run build; \
     fi
 
