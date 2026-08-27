@@ -1,29 +1,11 @@
-# bookworm + build tools: Tina pulls better-sqlite3 (needs node-gyp)
-FROM node:20-bookworm-slim AS build
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends python3 make g++ \
-  && rm -rf /var/lib/apt/lists/*
+# Alpine build: only Docusaurus. Tina admin is prebuilt in static/tina-admin/
+# (tinacms build OOMs on small VPS — run `npm run tina:admin` locally and commit).
+FROM node:20-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --omit=dev
 COPY . .
-
-# TinaCloud credentials (optional). When set, builds /tina-admin into the site.
-ARG TINA_CLIENT_ID=
-ARG TINA_TOKEN=
-ARG TINA_BRANCH=main
-ENV TINA_CLIENT_ID=$TINA_CLIENT_ID \
-    NEXT_PUBLIC_TINA_CLIENT_ID=$TINA_CLIENT_ID \
-    TINA_TOKEN=$TINA_TOKEN \
-    TINA_BRANCH=$TINA_BRANCH
-
-RUN if [ -n "$TINA_CLIENT_ID" ] && [ -n "$TINA_TOKEN" ]; then \
-      echo "Building with TinaCloud admin (/tina-admin)..."; \
-      npx tinacms build && npm run build; \
-    else \
-      echo "WARN: TINA_CLIENT_ID/TINA_TOKEN empty — skipping tinacms build (no /tina-admin)"; \
-      npm run build; \
-    fi
+RUN npm run build
 
 FROM nginx:alpine
 RUN apk add --no-cache openssl \

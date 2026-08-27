@@ -1,11 +1,6 @@
 services:
   docs:
-    build:
-      context: .
-      args:
-        TINA_CLIENT_ID: ${TINA_CLIENT_ID:-}
-        TINA_TOKEN: ${TINA_TOKEN:-}
-        TINA_BRANCH: ${TINA_BRANCH:-main}
+    build: .
     ports:
       # HTTP — чтение сайта
       - "3002:80"

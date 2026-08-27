@@ -2,11 +2,11 @@
 
 - Сайт (чтение): **http://95.183.13.164:3002/**
 - Редактор Sveltia: **https://95.183.13.164:3443/admin/**
-- Редактор Tina: **https://95.183.13.164:3443/tina-admin/** (TinaCloud + `.env`, см. `TINA.md`)
+- Редактор Tina: **https://95.183.13.164:3443/tina-admin/** (админка в `static/tina-admin/`, см. `TINA.md`)
 - Wiki.js на 3000/3001 не трогаем
 
 Sveltia **не работает** по `http://IP` — нужен HTTPS или localhost.
-Tina на сервере — тоже через HTTPS; без `TINA_CLIENT_ID`/`TINA_TOKEN` в `.env` админка не соберётся.
+Tina на сервере — тоже через **https://...:3443/tina-admin/**.
 
 ## Первичная установка (SSH под root)
 

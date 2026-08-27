@@ -24,5 +24,4 @@ yarn-error.log*
 .obsidian/
 Pasted image *.png
 
-# TinaCMS generated admin (built by `npm run build:tina` / `start:tina`)
-static/tina-admin/
+# Tina admin is committed (prebuilt for TinaCloud) — regenerate with `npm run tina:admin`
